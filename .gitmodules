@@ -1,3 +1,6 @@
 [submodule "auth"]
 	path = auth
 	url = git@github.com:bhtoan2204/auth.git
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/truong-ne/website-ng.git
