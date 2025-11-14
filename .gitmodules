@@ -4,3 +4,9 @@
 [submodule "frontend"]
 	path = frontend
 	url = https://github.com/truong-ne/website-ng.git
+[submodule "gateway"]
+	path = gateway
+	url = git@github.com:bhtoan2204/gateway.git
+[submodule "eureka"]
+	path = eureka
+	url = git@github.com:bhtoan2204/eureka.git

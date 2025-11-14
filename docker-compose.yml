@@ -1,0 +1,60 @@
+services:
+  redis:
+    image: redis:7
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - marketplace-network
+
+  eureka:
+    build:
+      context: ./eureka
+      dockerfile: Dockerfile
+      # BuildKit cache mounts are used in Dockerfile for Gradle cache
+    container_name: eureka
+    ports:
+      - "8761:8761"
+    environment:
+      - SPRING_PROFILES_ACTIVE=default
+      - EUREKA_HOST=eureka
+    networks:
+      - marketplace-network
+
+  auth:
+    build:
+      context: ./auth
+      dockerfile: Dockerfile
+      # BuildKit cache mounts are used in Dockerfile for Gradle cache
+    # container_name: auth
+    environment:
+      - SPRING_PROFILES_ACTIVE=default
+      - EUREKA_SERVER_URL=http://eureka:8761/eureka
+      - EUREKA_INSTANCE_HOSTNAME=auth
+    networks:
+      - marketplace-network
+    deploy:
+      mode: replicated
+      replicas: 3
+  gateway:
+    build:
+      context: ./gateway
+      dockerfile: Dockerfile
+      # BuildKit cache mounts are used in Dockerfile for Gradle cache
+    container_name: gateway
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=default
+      - EUREKA_SERVER_URL=http://eureka:8761/eureka
+    depends_on:
+      eureka:
+        condition: service_started
+      auth:
+        condition: service_started
+    networks:
+      - marketplace-network
+
+networks:
+  marketplace-network:
+    driver: bridge
