@@ -1,12 +1,12 @@
 [submodule "auth"]
 	path = auth
-	url = git@github.com:bhtoan2204/auth.git
+	url = https://github.com/bhtoan2204/auth.git
 [submodule "frontend"]
 	path = frontend
 	url = https://github.com/truong-ne/website-ng.git
 [submodule "gateway"]
 	path = gateway
-	url = git@github.com:bhtoan2204/gateway.git
+	url = https://github.com/bhtoan2204/gateway.git
 [submodule "eureka"]
 	path = eureka
-	url = git@github.com:bhtoan2204/eureka.git
+	url = https://github.com/bhtoan2204/eureka.git
