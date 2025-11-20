@@ -1,7 +1,6 @@
 [submodule "auth"]
 	path = auth
 	url = git@github.com:bhtoan2204/auth.git
-<<<<<<< Updated upstream
 [submodule "frontend"]
 	path = frontend
 	url = https://github.com/truong-ne/website-ng.git
@@ -11,8 +10,3 @@
 [submodule "eureka"]
 	path = eureka
 	url = git@github.com:bhtoan2204/eureka.git
-=======
-[submodule "gateway"]
-	path = gateway
-	url = git@github.com:bhtoan2204/gateway.git
->>>>>>> Stashed changes
