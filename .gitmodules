@@ -10,3 +10,6 @@
 [submodule "eureka"]
 	path = eureka
 	url = https://github.com/bhtoan2204/eureka.git
+[submodule "product"]
+	path = product
+	url = https://github.com/bhtoan2204/product.git
